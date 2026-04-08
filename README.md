@@ -116,8 +116,6 @@ For churn problems, **recall for churned customers** is often especially importa
 - Package the model as a small API (FastAPI) or batch scoring pipeline
 
 ## License
-
-See `LICENSE`.
 MIT
 ## Contact
 rowanaymn0284@gmail.com
