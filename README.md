@@ -1,122 +1,107 @@
 # E-Commerce Customer Churn Prediction
 
-Predict whether an e-commerce customer will churn using behavioral and transactional features. This project includes exploratory analysis (EDA), preprocessing, baseline modeling, and evaluation with actionable business insights.
+Predict customer churn for an e-commerce platform using behavioral and transactional data.
+
+---
 
 ## Project Overview
 
-Customer churn is costly for e-commerce businesses. The goal of this project is to:
-- explore churn patterns,
-- build a predictive model to identify customers at risk,
-- and highlight the strongest churn drivers to support retention strategies.
+Churn is very costly for e-commerce businesses. This project analyzes customer churn patterns using a real-world dataset, builds machine learning models, and identifies key behaviors associated with churn. The goal is to predict which customers are at the highest risk of leaving so that retention efforts can be more targeted and effective.
+
+---
 
 ## Dataset
 
 - **File:** `ecommerce_customer_churn_dataset.csv`
 - **Rows:** 50,000 customers
-- **Target:** `Churned` (1 = churned, 0 = not churned)
-- **Feature types:** demographics, engagement/behavior, transactions, and customer service interactions.
+- **Features:** 25 columns including demographics, behavioral, transactional, and engagement data, and the target column:
+  - `Churned` (1 if customer churned, 0 otherwise)
 
-## Repository Contents
+---
 
-- `ecommerce_customer_churn.ipynb` — main notebook (analysis + modeling)  
-  *(If your repo still shows `ecommerce_customer_churn (1).ipynb`, rename it for a more professional filename.)*
-- `ecommerce_customer_churn_dataset.csv` — dataset
-- `requirements.txt` — Python dependencies
-- `README.md` — project description and instructions
-- `LICENSE` — license info
-- `.gitignore` — git ignore rules
-
-## How to Run
-
-### Option 1 — Run locally (Jupyter)
-
-1. Clone the repo and enter the folder:
-   ```bash
-   git clone https://github.com/Rowan123204/ecommerce-customer-churn.git
-   cd ecommerce-customer-churn
-   ```
-
-2. (Recommended) Create a virtual environment:
-   ```bash
-   python -m venv .venv
-
-   # macOS/Linux
-   source .venv/bin/activate
-
-   # Windows (PowerShell)
-   .venv\Scripts\Activate.ps1
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Launch Jupyter and open the notebook:
-   ```bash
-   jupyter notebook
-   ```
-
-### Option 2 — Run in Google Colab
-
-1. Open the notebook in GitHub.
-2. Download it or open it in Colab.
-3. Ensure `ecommerce_customer_churn_dataset.csv` is available in the runtime:
-   - upload it manually, or
-   - mount Google Drive, or
-   - clone the repo inside Colab.
-
-## Workflow Summary
+## Workflow
 
 1. **Exploratory Data Analysis (EDA)**
-   - Inspect distributions, missing values, and churn rate
-   - Visualize churn patterns across key customer segments
-
+    - Understand the data structure
+    - Summary statistics and visualization (e.g., churn rate by gender, inactivity)
 2. **Data Preprocessing**
-   - Impute missing values (median for numeric, mode for categorical)
-   - Encode categorical variables (one-hot encoding)
-   - Scale numeric features (StandardScaler)
-
+    - Handle missing values (median for numeric, mode for categorical)
+    - Remove duplicates
+    - One-hot encode categorical features
 3. **Modeling**
-   - Train/test split
-   - Baseline model: Logistic Regression
-   - (Optional) Compare against tree-based models (e.g., Random Forest, Gradient Boosting)
-
+    - Train/test split (80/20)
+    - Standardize numeric features
+    - Train Logistic Regression and Random Forest Classifier
 4. **Evaluation**
-   - Confusion matrix
-   - Classification report (precision, recall, F1-score)
-   - Accuracy
-   - (Recommended additions) ROC-AUC / PR-AUC, threshold tuning
+    - Confusion matrix, classification report (precision/recall/f1/accuracy)
+    - Feature importance analysis (identify the most predictive features)
+5. **Interpretability & Business Insights**
+    - Key drivers of churn highlighted
+    - Visualizations to communicate findings
 
-## Key Insights (from analysis)
+---
 
-Common churn drivers found in this dataset include:
-- **Days_Since_Last_Purchase**: inactivity is strongly associated with churn
-- **Customer_Service_Calls**: frequent support calls may indicate dissatisfaction
-- **Returns_Rate** and **Cart_Abandonment_Rate**: higher values correlate with churn
-- **Engagement metrics** (login frequency, session duration): lower engagement increases churn risk
+## Key Insights
 
-## Results (Baseline)
+- **Days_Since_Last_Purchase** is the top churn predictor: inactive customers are most at risk.
+- **Customer_Service_Calls** are closely linked to churn, indicating possible dissatisfaction.
+- **Returns_Rate** and **Cart_Abandonment_Rate** are negative indicators and strongly correlate with leaving.
+- **Engagement metrics** like Login Frequency and Session Duration matter; less engaged users churn more.
+- No major churn rate difference between genders.
 
-The notebook reports baseline classification metrics using Logistic Regression.
+---
 
-For churn problems, **recall for churned customers** is often especially important (catching as many likely churners as possible). Future improvements should focus on:
-- class weighting / resampling,
-- feature engineering,
-- threshold tuning,
-- and model comparison.
+## Requirements
 
-## Next Steps / Improvements (Recommended)
+- Python 3.7+
+- pandas, numpy, scikit-learn, matplotlib, seaborn
 
-- Improve reproducibility (pinned versions, configuration, script entry point)
-- Hyperparameter tuning (GridSearchCV / RandomizedSearchCV)
-- Address class imbalance (e.g., `class_weight="balanced"`, SMOTE)
-- Add ROC-AUC / PR-AUC and calibration checks
-- Model interpretability: permutation importance or SHAP values
-- Package the model as a small API (FastAPI) or batch scoring pipeline
+Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Usage
+
+**Notebook**  
+Open and run `ecommerce_customer_churn.ipynb` (or the similarly-named file) in Jupyter/Colab.
+
+**Script**  
+For reproducibility or batch runs, use the `.py` version:
+```bash
+python ecommerce_customer_churn.py
+```
+Make sure `ecommerce_customer_churn_dataset.csv` is in the same directory.
+
+---
+
+## Files
+
+- `ecommerce_customer_churn.ipynb` – Main Jupyter/Colab notebook with analyses and visualizations
+- `ecommerce_customer_churn.py` – Script version (auto-generated from notebook)
+- `ecommerce_customer_churn_dataset.csv` – The input data
+- (Optional) Exported plots, model pickles, etc.
+
+---
+
+## Next Steps / Possible Improvements
+
+- Hyperparameter tuning for optimal accuracy
+- SMOTE or class weighting for imbalanced data
+- Deploy as a scoring API or automated report service
+- Deeper segmentation (by geography, tenure, etc.)
+
+---
 
 ## License
+
 MIT
+
+---
+
 ## Contact
 rowanaymn0284@gmail.com
-If you have questions or suggestions, please open an issue in this repository.
+For questions or contributions, open an issue or contact [your email/github].
+lease open an issue in this repository.
