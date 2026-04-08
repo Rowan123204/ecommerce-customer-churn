@@ -1,6 +1,6 @@
 # E-Commerce Customer Churn Prediction
 
-Predict whether an e-commerce customer will churn using behavioral and transactional features. This project includes exploratory analysis, preprocessing, baseline modeling, and evaluation with actionable business insights.
+Predict whether an e-commerce customer will churn using behavioral and transactional features. This project includes exploratory analysis (EDA), preprocessing, baseline modeling, and evaluation with actionable business insights.
 
 ## Project Overview
 
@@ -18,13 +18,13 @@ Customer churn is costly for e-commerce businesses. The goal of this project is 
 
 ## Repository Contents
 
-- `ecommerce_customer_churn (1).ipynb` — main notebook (analysis + modeling)
+- `ecommerce_customer_churn.ipynb` — main notebook (analysis + modeling)  
+  *(If your repo still shows `ecommerce_customer_churn (1).ipynb`, rename it for a more professional filename.)*
 - `ecommerce_customer_churn_dataset.csv` — dataset
+- `requirements.txt` — Python dependencies
 - `README.md` — project description and instructions
 - `LICENSE` — license info
 - `.gitignore` — git ignore rules
-
-> Recommended cleanup: rename `ecommerce_customer_churn (1).ipynb` to `ecommerce_customer_churn.ipynb` for a more professional filename.
 
 ## How to Run
 
@@ -39,13 +39,15 @@ Customer churn is costly for e-commerce businesses. The goal of this project is 
 2. (Recommended) Create a virtual environment:
    ```bash
    python -m venv .venv
+
    # macOS/Linux
    source .venv/bin/activate
+
    # Windows (PowerShell)
    .venv\Scripts\Activate.ps1
    ```
 
-3. Install dependencies (create `requirements.txt` if you don’t have one yet):
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
@@ -58,7 +60,7 @@ Customer churn is costly for e-commerce businesses. The goal of this project is 
 ### Option 2 — Run in Google Colab
 
 1. Open the notebook in GitHub.
-2. Click “Open in Colab” (or upload the notebook to Colab).
+2. Download it or open it in Colab.
 3. Ensure `ecommerce_customer_churn_dataset.csv` is available in the runtime:
    - upload it manually, or
    - mount Google Drive, or
@@ -67,8 +69,8 @@ Customer churn is costly for e-commerce businesses. The goal of this project is 
 ## Workflow Summary
 
 1. **Exploratory Data Analysis (EDA)**
-   - Check distributions, missing values, and churn rate
-   - Visualize churn patterns across key segments
+   - Inspect distributions, missing values, and churn rate
+   - Visualize churn patterns across key customer segments
 
 2. **Data Preprocessing**
    - Impute missing values (median for numeric, mode for categorical)
@@ -78,7 +80,7 @@ Customer churn is costly for e-commerce businesses. The goal of this project is 
 3. **Modeling**
    - Train/test split
    - Baseline model: Logistic Regression
-   - (Optional) Compare against tree-based models (e.g., Random Forest)
+   - (Optional) Compare against tree-based models (e.g., Random Forest, Gradient Boosting)
 
 4. **Evaluation**
    - Confusion matrix
@@ -97,7 +99,8 @@ Common churn drivers found in this dataset include:
 ## Results (Baseline)
 
 The notebook reports baseline classification metrics using Logistic Regression.
-For churn problems, **recall for churned customers** is often especially important (catching as many likely churners as possible), so future improvements should focus on:
+
+For churn problems, **recall for churned customers** is often especially important (catching as many likely churners as possible). Future improvements should focus on:
 - class weighting / resampling,
 - feature engineering,
 - threshold tuning,
@@ -105,8 +108,7 @@ For churn problems, **recall for churned customers** is often especially importa
 
 ## Next Steps / Improvements (Recommended)
 
-- Add `requirements.txt` for full reproducibility
-- Add a script version (`ecommerce_customer_churn.py`) so it can be run from the command line
+- Improve reproducibility (pinned versions, configuration, script entry point)
 - Hyperparameter tuning (GridSearchCV / RandomizedSearchCV)
 - Address class imbalance (e.g., `class_weight="balanced"`, SMOTE)
 - Add ROC-AUC / PR-AUC and calibration checks
@@ -116,7 +118,7 @@ For churn problems, **recall for churned customers** is often especially importa
 ## License
 
 See `LICENSE`.
-
+MIT
 ## Contact
-
-If you have questions or suggestions, please open an issue in this repository.n issue or contact [Rowan123204/github].
+rowanaymn0284@gmail.com
+If you have questions or suggestions, please open an issue in this repository.
